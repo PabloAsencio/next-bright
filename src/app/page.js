@@ -1,19 +1,9 @@
 import React from 'react';
 import { Code } from 'bright';
+import ExpandableContent from '../components/ExpandableContent';
 
 function Home() {
-  const [
-    isFirstSnippetShown,
-    setIsFirstSnippetShown,
-  ] = React.useState(false);
-  const [
-    isSecondSnippetShown,
-    setIsSecondSnippetShown,
-  ] = React.useState(false);
-  const [
-    isThirdSnippetShown,
-    setIsThirdSnippetShown,
-  ] = React.useState(false);
+  
 
   return (
     <main>
@@ -28,7 +18,7 @@ function Home() {
         based on the value you assign.
       </p>
 
-      {isFirstSnippetShown ? (
+      <ExpandableContent>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -36,17 +26,7 @@ function Home() {
         >
           {FIRST_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsFirstSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </ExpandableContent>
 
       <h2>
         Control Flow: Conditionals and Loops
@@ -57,7 +37,8 @@ function Home() {
         while loops.
       </p>
 
-      {isSecondSnippetShown ? (
+
+      <ExpandableContent>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -65,18 +46,8 @@ function Home() {
         >
           {SECOND_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsSecondSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
-
+      </ExpandableContent>
+        
       <h2>Functions and Basic Data Structures</h2>
 
       <p>
@@ -86,7 +57,8 @@ function Home() {
         lists and dictionaries.
       </p>
 
-      {isThirdSnippetShown ? (
+
+      <ExpandableContent>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -94,17 +66,9 @@ function Home() {
         >
           {THIRD_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsThirdSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </ExpandableContent>
+        
+    
     </main>
   );
 }
